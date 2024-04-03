@@ -8,6 +8,7 @@ interface State {
     urlOrigin: string,
     userInfo: any | null
     token: string
+    tabId: number
 }
 
 export const useUserStore = defineStore('user', {
@@ -16,7 +17,8 @@ export const useUserStore = defineStore('user', {
             url: null,
             urlOrigin: '',
             userInfo: null,
-            token: null
+            token: null,
+            tabId: null
         }
         return state
     },
@@ -29,6 +31,9 @@ export const useUserStore = defineStore('user', {
         },
         setCookieAndUserinfo() {
             const that = this
+            chrome.tabs.getCurrent((tab) => {
+                that.tabId = tab.id
+            })
             chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
                 const u = new URL(tabs[0]?.url)
                 that.url = u
