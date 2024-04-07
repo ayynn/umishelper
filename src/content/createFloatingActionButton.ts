@@ -1,5 +1,5 @@
-import { FRAMEID } from "./listeners";
-import { showFrame } from "./hideShowFrame";
+import { FRAMEID } from "./portalListeners";
+import { toggleHelper } from "./portalMessageEvents/toggleHelper";
 
 export function createFloatingActionButton() {
     const floatingActionButtonId = 'floating-action-button'
@@ -45,7 +45,7 @@ export function createFloatingActionButton() {
     floatingActionButton.addEventListener('click', () => {
         const contentIframe = document.getElementById(FRAMEID)
         if (!contentIframe) return
-        showFrame(contentIframe)
+        toggleHelper()
     })
     document.body.appendChild(floatingActionButton);
     document.body.appendChild(styleSheet);

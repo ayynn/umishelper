@@ -1,11 +1,12 @@
 import { useUserStore } from "../store/user"
 import { storeToRefs } from "pinia"
-export function postHelperMessage(message:{
-    type:string,
-    data?:any,
-    status?:boolean
+export function postHelperMessage(message: {
+    type: string,
+    data?: any,
+    status?: boolean
 }) {
-    const store=useUserStore()
+    console.log('what happening in postHelper message', message)
+    const store = useUserStore()
     const { urlOrigin } = storeToRefs(store)
     window.parent.postMessage({
         source: 'umishelper-contentpage',

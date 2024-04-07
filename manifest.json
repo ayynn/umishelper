@@ -18,7 +18,15 @@
   "background": {
     "service_worker": "background/service-worker.js"
   },
-  "permissions": ["activeTab", "tabs", "alarms", "storage", "cookies","debugger"],
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "alarms",
+    "storage",
+    "cookies",
+    "contextMenus",
+    "tts"
+  ],
   "host_permissions": [
     "https://smartoffice.beyondbit.com/*",
     "https://*.beyondbit.com/*",

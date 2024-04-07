@@ -23,10 +23,9 @@ export const useUserStore = defineStore('user', {
         return state
     },
     actions: {
-        toggleHelper(status: boolean) {
+        toggleHelper() {
             postHelperMessage({
-                type: 'toggleHelper',
-                status
+                type: 'toggleHelper'
             })
         },
         setCookieAndUserinfo() {

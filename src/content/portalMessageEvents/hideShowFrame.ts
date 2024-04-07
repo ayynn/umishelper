@@ -10,5 +10,5 @@ export function hideFrame(contentIframe) {
         contentIframe.style.display = 'none'
     }, 500);
     contentIframe.style.opacity = '0'
-    contentIframe.style.transform = 'translateX(100%)'
+    contentIframe.style.transform = 'translateX(-100%)'
 }

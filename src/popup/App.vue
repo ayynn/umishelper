@@ -7,8 +7,8 @@
             <el-button @click="goToUMIS">Go to Main Site</el-button>
         </div>
         <div class="toggleButton" v-else>
-            <el-button @click="toggleHelper(true)">Open Helper</el-button>
-            <el-button @click="toggleHelper(false)">Close helper</el-button>
+            <el-button @click="toggleHelper">Open Helper</el-button>
+            <el-button @click="toggleHelper">Close helper</el-button>
         </div>
     </div>
 </template>
@@ -17,10 +17,10 @@
 import { ElMessage } from 'element-plus'
 import { ref, onMounted } from 'vue'
 const ifInMainSite = ref()
-function toggleHelper(status: boolean) {
+function toggleHelper() {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {
-            type: 'toggleHelper', status
+            type: 'toggleHelper'
         }).catch(err => {
             console.log(err)
             ElMessage.warning({
